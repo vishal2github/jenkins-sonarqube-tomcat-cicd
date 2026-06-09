@@ -25,7 +25,7 @@ Security groups were configured to allow required ports between services.
 
 ## ⚙️ Tech Stack
 
-- - AWS (EC2) – Infrastructure / Servers
+- AWS (EC2) – Infrastructure / Servers
 - Jenkins – CI/CD Orchestration  
 - SonarQube – Code Quality Analysis  
 - Apache Tomcat – Application Deployment  
