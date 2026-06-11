@@ -14,22 +14,21 @@ Security group rules:
 
 ### Step-2 (Install wget, zip/unzip, JDK17, SonarQube)
 
-`sudo apt update -y`
+`sudo yum update -y`
 
-`sudo apt install wget -y`  
-`sudo apt install zip -y`
+`sudo yum install wget -y`  
+`sudo yum install zip -y`
 
-`sudo yum install java-17-openjdk`  
-`sudo yum install -y java-17-amazon-corretto-devel`  
+`sudo yum install java-17-openjdk` or `sudo yum install -y java-17-amazon-corretto-devel`  
 `java --version`
 
 `sudo su`  
 `cd /opt`
 	
-`wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.0.65466.zip`  
-`unzip sonarqube-9.9.0.65466.zip`
+`wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.3.79811.zip`  
+`unzip sonarqube-9.9.3.79811.zip`
 
-`ls` (Check for extracted folder 'sonarqube-9.9.0.65466')  
+`ls` (Check for extracted folder 'sonarqube-9.9.3.79811')  
 Optional: Using 'mv', change name of default extract folder to 'sonarqube' for simplicity
 
 ---
@@ -37,15 +36,15 @@ Optional: Using 'mv', change name of default extract folder to 'sonarqube' for s
 ### Step-3 (SonarQube user creation and ownership configuration)
 
 SonarQube cannot run as root. Create a user (e.g., sonar):
- - `useradd -d /opt/sonarqube -g sonar sonar` (Can simply use `useradd sonar` as well)
+ - `useradd sonar` (Or can use `useradd -d /opt/sonarqube -g sonar sonar`)
  - `cat /etc/passwd` (Confirm 'sonar' user)
 
 Change ownership:
- - `chown -R sonar:sonar /opt/sonarqube-9.9.0.65466`
- - `chmod -R 755 /opt/sonarqube-9.9.0.65466`
+ - `chown -R sonar:sonar /opt/sonarqube-9.9.3.79811`
+ - `chmod -R 755 /opt/sonarqube-9.9.3.79811`
 
 Modify 'visudo':
- - Go for line: ## Allow root to run any commands anywhere
+ - Go for line: ## Allow root to run any commands anywhere (Line No. 99)
  - Add line below root line: `sonar    ALL=(ALL)    NOPASSWD:ALL`
 
 ---
@@ -54,14 +53,15 @@ Modify 'visudo':
 	
 `su - sonar`  
 `cd /opt/`  
-`cd ./sonarqube-9.9.0.65466/bin/linux-x86-64/sonar.sh start`  
-`http://<ip>:9000`
-	
+`ls` (Verify for extracted folder)  
+`./sonarqube-9.9.0.65466/bin/linux-x86-64/sonar.sh start`  
+`http://<server_public_ip>:9000`
+
 Default credentials window:
  - username: Default username is `admin`
  - password: Default password is `admin`
  - Set new password
-		
+
 SonarQube Homepage appears
 
 ---
@@ -70,8 +70,8 @@ SonarQube Homepage appears
 
 SonarQube homepage (via url) > Administrator > Security  
 Under Tokens > Generate Tokens
- - Name 	 : sonar-token
- - Type 	 : Global Analysis Token
+ - Name 	   : sonar-token
+ - Type 	   : Global Analysis Token
  - Expire in : Set expiration date
  - Click 'Generate'
 
@@ -87,7 +87,7 @@ SonarQube servers:
 
  - Click AddSonarQube:
    - Name 	    : Sonar-Server-9.9
-   - Server URL : `http://<sonar-instance-ip>:9000
+   - Server URL : `http://<sonar-instance-ip>:9000`
 			
  - Server authentication token:
    - Click '+ Add' button > Add Credentials
