@@ -30,7 +30,7 @@ Security Group → Add rule:
 
 `sudo systemctl start jenkins`  
 `sudo systemctl enable Jenkins`  
-`sudo systemctl status Jenkins`s
+`sudo systemctl status Jenkins`
 
 ---
 

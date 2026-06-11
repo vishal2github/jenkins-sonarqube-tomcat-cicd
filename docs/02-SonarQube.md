@@ -1,4 +1,4 @@
-# SonarQube setup on Amazon-Linux-2 (In separate EC2 instance)
+# SonarQube setup (In separate EC2 instance)
 
 ### Step-1 (EC2 instance creation)
 
