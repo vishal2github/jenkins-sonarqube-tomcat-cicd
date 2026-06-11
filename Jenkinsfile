@@ -1,5 +1,4 @@
 // Script file for pipeline script in 'Step_4_Pipeline.txt'
-// For proper visualization purpose
 
 pipeline {
     agent any

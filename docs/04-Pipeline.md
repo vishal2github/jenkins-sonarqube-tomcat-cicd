@@ -1,19 +1,15 @@
-Building pipeline on Jenkins instance
--------------------------------------
+# Building pipeline on Jenkins instance
 
 Jenkins > New Item
+ - Enter an item name  : Give pipeline name
+ - Select an item type : Pipeline > OK
 
-	Enter an item name  : Give pipeline name
-	Select an item type : Pipeline > OK
+ - Configure:
+   - Directly go to the Pipeline section
+   - Definition: Select 'Pipeline script'
 
-	Configure:
-		Directly go to the Pipeline section
-		Definition: Select 'Pipeline script'
-
-
-		Write following pipeline script under 'Script' box:
-...................................................................
-
+ - Write following pipeline script under 'Script' box:
+```
 pipeline {
     agent any
 
@@ -53,9 +49,8 @@ pipeline {
         }
     }
 }
+```
 
-.....................................................................
-Apply and save
-
+ - Apply and save
 
 Pipeline > Build
