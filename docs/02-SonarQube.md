@@ -87,7 +87,7 @@ SonarQube servers:
 
  - Click AddSonarQube:
    - Name 	    : Sonar-Server-9.9
-   - Server URL : `http://<sonar-instance-ip>:9000`
+   - Server URL : `http://<sonar-instance-ip>:9000` (This configuration changes everytime server is started/rebooted)
 			
  - Server authentication token:
    - Click '+ Add' button > Add Credentials
