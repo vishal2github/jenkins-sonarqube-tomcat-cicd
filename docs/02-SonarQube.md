@@ -53,9 +53,12 @@ Modify 'visudo':
 	
 `su - sonar`  
 `cd /opt/`  
-`ls` (Verify for extracted folder)  
+`ls` (Verify for extracted folder)
+
 `./sonarqube-9.9.0.65466/bin/linux-x86-64/sonar.sh start`  
-`http://<server_public_ip>:9000`
+ - At this point, remember to run `sonar.sh` file with respective user only (In this case is 'sonar', and not 'root' or any other user)
+
+Access webpage via `http://<server_public_ip>:9000`
 
 Default credentials window:
  - username: Default username is `admin`
